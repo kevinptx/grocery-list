@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
+  state = {
+    list: [
+      { id: 1, name: "Buy Apples", complete: true },
+      { id: 2, name: "Buy Grapes", complete: true },
+      { id: 3, name: "Buy Oranges", complete: false }
+    ]
+  };
+
+  renderList = () => {
+    const { list } = this.state;
+    return list.map(list => <li key={list.id}>{list.name}</li>);
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <ul>{this.renderList()}</ul>
       </div>
     );
   }
