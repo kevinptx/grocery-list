@@ -5,7 +5,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
-  state = { lists: [] };
+  state = { lists: [], filter: "All" };
 
   getUniqId = () => {
     //NOTE We are just using this as a helper function for id's since we aren't using a db yet
@@ -36,11 +36,15 @@ class App extends Component {
   };
 
   render() {
-    const { lists } = this.state;
+    const { lists, filter } = this.state;
     return (
       <div>
         <ListForm addItem={this.addItem} />
-        <List name="Grocery List" items={lists} />
+        <List
+          name="Grocery List"
+          items={lists}
+          groceryClick={this.handleClick}
+        />
       </div>
     );
   }

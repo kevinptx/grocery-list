@@ -6,6 +6,7 @@ const Grocery = ({ id, name, complete, groceryClick }) => (
     style={
       complete ? { ...styles.grocery, ...styles.complete } : styles.grocery
     }
+    onClick={() => groceryClick(id)}
   >
     {name}
   </li>
